@@ -47,7 +47,7 @@ class Concatenator:
 		"main.js"
 	]
 }"""
-		open('prod.json','w').write(config_content)
+		open(self.config_file,'w').write(config_content)
 
 
 if __name__ == '__main__':
