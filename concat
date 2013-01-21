@@ -1,0 +1,53 @@
+#!/usr/bin/python
+
+import json, os, sys
+
+class Concatinator:
+	def __init__(self):
+		if (len(sys.argv) > 1)  and (sys.argv[1] == "init"):
+			self.write_config_file()
+			exit(0)
+		self.contents = []
+		self.config_file = "prod.json"
+		self.read_config()
+		self.get_contents()
+		self.join_content()
+		self.write_content()
+		return
+
+	def read_config(self):
+		try:
+			self.config = json.loads(open(self.config_file, 'r').read())
+		except Exception as e:
+			print "Could not read config file: %s" % e
+			exit(1)
+		return
+	def get_contents(self):
+		for f in self.config['files']:
+			try:
+				self.contents.append(open(self.config['base'] + f).read())
+			except Exception as e:
+				print "Error: %s" % e
+	def join_content(self):
+		self.concat = "\n".join(self.contents)
+		return
+
+	def write_content(self):
+		try:
+			open(self.config['base'] + self.config['output'], "w").write(self.concat)
+		except Exception as e:
+			print "Error: %s" % e
+		return
+	def write_config_file(self):
+		config_content = """{
+	"base": "./_js",
+	"output": "compressed/main.cat.js",
+	"files": [
+		"main.js"
+	]
+}"""
+		open('prod.json','w').write(config_content)
+
+
+if __name__ == '__main__':
+	c = Concatinator()

@@ -1,0 +1,7 @@
+{
+	"base": "./_js",
+	"output": "compressed/main.cat.js",
+	"files": [
+		"main.js"
+	]
+}
