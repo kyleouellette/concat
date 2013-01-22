@@ -4,10 +4,10 @@ import json, os, sys
 
 class Concatenator:
 	def __init__(self):
+		self.config_file = "prod.json"
 		if (len(sys.argv) > 1)  and (sys.argv[1] == "init"):
 			self.write_config_file()
 			exit(0)
-		self.config_file = "prod.json"
 		self.contents = []
 		self.read_config()
 		self.get_contents()
@@ -39,7 +39,7 @@ class Concatenator:
 			print "Error: %s" % e
 		return
 	def write_config_file(self):
-		config_content = """{
+		self.config_content = """{
 	"base": "./_js/",
 	"output": "compressed/main.cat.js",
 	"files": [
@@ -47,7 +47,7 @@ class Concatenator:
 		"main.js"
 	]
 }"""
-		open(self.config_file,'w').write(config_content)
+		open(self.config_file,'w').write(self.config_content)
 
 
 if __name__ == '__main__':

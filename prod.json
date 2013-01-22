@@ -3,8 +3,6 @@
 	"output": "compressed/main.cat.js",
 	"files": [
 		"libs/jquery/jquery-min.js",
-		"libs/underscore/underscore-min.js",
-		"libs/backbone/backbone-min.js",
 		"main.js"
 	]
 }
