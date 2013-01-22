@@ -1,8 +1,18 @@
-{
-	"base": "./_js/",
-	"output": "compressed/main.cat.js",
-	"files": [
-		"libs/jquery/jquery-min.js",
-		"main.js"
-	]
-}
+[
+	{
+		"base": "./_js/",
+		"output": "compressed/main.cat.js",
+		"files": [
+			"main.js",
+			"test.js"
+		]
+	},
+	{
+		"base": "./_js/",
+		"output": "compressed/main.cat-2.js",
+		"files": [
+			"main.js",
+			"test.js"
+		]
+	}
+]
