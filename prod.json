@@ -14,5 +14,13 @@
 			"main.js",
 			"test.js"
 		]
+	},
+	{
+		"base": "./_css/",
+		"output": "compressed/main.all.css",
+		"files": [
+			"main.css",
+			"button.css"
+		]
 	}
 ]
